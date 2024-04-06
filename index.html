@@ -25,20 +25,38 @@
     </div>
 
     <script>
-        // Function to fetch HTML files and check if all are loaded
-        function loadHTMLFilesAndRedirect() {
-            var htmlFiles = ['主页.html', 'yx.html', 'sp.html']; // List of HTML files to load
+        // Function to load HTML files and check image loading status
+        function loadAndCheckImages() {
+            var htmlFiles = ['主页.html', 'sp.html', 'yx.html']; // List of HTML files to load
             var loadedCount = 0;
+
+            function checkAllLoaded() {
+                loadedCount++;
+                if (loadedCount === htmlFiles.length) {
+                    // All HTML files are loaded, wait for all images to be loaded
+                    var images = document.querySelectorAll('img');
+                    var loadedImagesCount = 0;
+                    images.forEach(function (img) {
+                        if (img.complete) {
+                            loadedImagesCount++;
+                        }
+                    });
+
+                    if (loadedImagesCount === images.length) {
+                        // All images are loaded, redirect to index.html
+                        window.location.href = '主页.html';
+                    } else {
+                        // Some images are still loading
+                        console.log('Some images are still loading...');
+                    }
+                }
+            }
 
             htmlFiles.forEach(function (file) {
                 fetch(file)
                     .then(function (response) {
                         if (response.ok) {
-                            loadedCount++;
-                            if (loadedCount === htmlFiles.length) {
-                                // All HTML files are loaded, redirect to index.html
-                                window.location.href = '主页.html';
-                            }
+                            checkAllLoaded();
                         }
                     })
                     .catch(function (error) {
@@ -49,7 +67,7 @@
 
         // Call the function when the window is loaded
         window.onload = function () {
-            loadHTMLFilesAndRedirect();
+            loadAndCheckImages();
         };
     </script>
 </body>
