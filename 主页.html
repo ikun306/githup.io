@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="tp.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="80.css">
+<title>Hi!欢迎来到我的网站</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('bz.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  #avatar {
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  #introduction {
+    margin-left: 120px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: #333;
+  }
+  
+  #time {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .con {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .transparent-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <img id="avatar" src="avatar.gif" alt="头像">
+  <h4>七年2班大佬</h4>
+  <br>
+  <a href="./index.html" class="con">首页</a>
+  <br><br><br>
+  <a href="./yx.html" class="con">游戏</a>
+  <br><br><br>
+  <a href="https://space.bilibili.com/3546380823955980" class="con">b站</a>
+  <br><br><br>
+  <a href="./sp.html" class="con">视频</a>
+</div>
+<div id="introduction">
+  <h1>自我介绍</h1>
+  <p>这是一个用HTML，CSS和JS制作的网页介绍示例。左侧是头像，中间是介绍文本，右上角显示北京时间。</p>
+
+  <p>大家好，我是七年2班的一个普通学生，一个对编程充满热情的13岁学生。在我的日常生活中，编程不仅仅是一项技能，更是我的兴趣所在。我喜欢探索计算机科学的各个领域，并且经常利用我的编程技能创造一些小型网站。
+
+    我已经开始积极地探索编程世界。我熟练运用HTML、CSS和JavaScript等技术，经常利用这些技能设计并开发一些小型网站。这不仅是一种对我编程技能的锻炼，更是我表达自己想法和创意的平台。
+    
+    除了编程，我也是一个乐于学习和探索的人。我喜欢阅读关于科技和编程的书籍，不断地扩展我的知识面。同时，我也乐于与他人分享我的知识和经验，希望能够激励更多的人对编程产生兴趣。
+    
+    未来，我希望能够继续深入学习编程，并将我的技能运用到更多的项目中。我相信，编程不仅可以改变我的生活，也能够为社会带来积极的影响。</p>
+    <h1>网站介绍</h1>
+    <p>
+      在这片温暖的网络角落，我将分享我的一切，与你共度每一个浪漫的瞬间。
+      我的网站不仅是一个展示我的作品和生活的平台，更是一个我用来表达对美好事物的热爱和对生活的热情的港湾。
+      在这里，你会发现我独特的创意、梦幻般的摄影作品，以及对于生活中每一个细节的认真体会。或许你会在这里找到灵感，或许你会在这里找到共鸣，更或许，你会在这里找到属于你和我的那份浪漫。
+      不论你是怀着探索的心情来到这里，还是只是想寻找一丝温暖的人，我都诚挚地欢迎你。让我们一起漫步在这片浪漫的网络世界，用心感受每一个瞬间的美好！
+      
+      谢谢你来到我的个人网站，愿我们的相遇点亮彼此的生活，成就更多浪漫的故事！</p>
+    <li><a href="https://ikun306.github.io/ikun360.github.io/" class="news_item"
+      title="我的其他网页（任务管理器）">
+      <p class="news_title ellipsis">我的其他网页（任务管理器）</p>
+  </a></li>
+</div>
+<div id="time"></div>
+
+<script>
+  function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    document.getElementById('time').innerHTML = '北京时间：' + hours + ':' + minutes + ':' + seconds;
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>
+</body>
+<body>
+  <div id="plane">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+  </div>
+  <script>
+      let plane=document.getElementById('plane');
+      let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
+      window.addEventListener('mousemove',(e)=>{
+          ex=e.x-plane.offsetLeft-plane.clientWidth/2;
+          ey=e.y-plane.offsetTop-plane.clientHeight/2;
+          deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
+          if(ex<0){
+              deg+=180;
+          }
+          count=0;
+      })
+      function draw(){
+          plane.style.transform='rotate('+deg+'deg)';
+          if(count<100){
+              vx+=ex/100;
+              vy+=ey/100;
+          }
+          plane.style.left=vx+'px';
+          plane.style.top=vy+'px';
+          count++;
+      }
+      setInterval(draw, 1);
+  </script>
+</body>
+</html>
