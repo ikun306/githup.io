@@ -37,17 +37,18 @@
                     var images = document.querySelectorAll('img');
                     var loadedImagesCount = 0;
                     images.forEach(function (img) {
-                        if (img.complete) {
+                        img.onload = function() {
                             loadedImagesCount++;
-                        }
+                            if (loadedImagesCount === images.length) {
+                                // All images are loaded, redirect to index.html
+                                window.location.href = 'index.html';
+                            }
+                        };
                     });
 
                     if (loadedImagesCount === images.length) {
-                        // All images are loaded, redirect to index.html
+                        // All images are already loaded, redirect to index.html
                         window.location.href = '主页.html';
-                    } else {
-                        // Some images are still loading
-                        console.log('Some images are still loading...');
                     }
                 }
             }
